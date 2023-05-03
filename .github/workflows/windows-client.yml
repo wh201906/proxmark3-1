@@ -1,4 +1,4 @@
-name: Windows Build and Test
+name: Windows Build Client
 
 on:
   workflow_dispatch:
@@ -50,11 +50,11 @@ jobs:
         run: ./runme64.bat -c "exit"
 
       - uses: actions/checkout@v3
+        path: C:\ProxSpace
 
       - name: ProxSpace autobuild
         working-directory: C:\ProxSpace
         run: |
-          mv -r ../proxmark3 ./
           ./autobuild.bat -c "exit"
 
       - name: Show result
