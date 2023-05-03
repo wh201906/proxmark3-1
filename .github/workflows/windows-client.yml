@@ -49,6 +49,8 @@ jobs:
         working-directory: C:\ProxSpace
         run: |
           mkdir ./pm3
+          cd pm3
+          git clone https://github.com/RfidResearchGroup/proxmark3.git
 
       - name: ProxSpace autobuild
         working-directory: C:\ProxSpace
