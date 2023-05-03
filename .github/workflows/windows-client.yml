@@ -65,3 +65,10 @@ jobs:
         working-directory: C:/ProxSpace
         run: |
           ./autobuild.bat
+
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          path: |
+            C:/ProxSpace/builds/**/*.7z
