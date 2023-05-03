@@ -57,7 +57,7 @@ jobs:
       - name: Checkout Proxmark3
         working-directory: C:\ProxSpace
         run: |
-          mkdir ./pm3
+          mkdir -Force ./pm3
           cd pm3
           git clone https://github.com/RfidResearchGroup/proxmark3.git
 
