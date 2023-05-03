@@ -28,6 +28,11 @@ jobs:
       PYTHONHOME: /mingw64
 
     steps:
+      - name: Set Environment
+        run: |
+          $Env:PATH = "C:/ProxSpace/msys2/mingw64/bin;C:/ProxSpace/msys2/usr/local/bin;C:/ProxSpace/msys2/usr/bin;C:/ProxSpace/msys2/bin;"+$Env:PATH
+          echo $Env:PATH
+          echo $Env:PATH >> "$GITHUB_ENV"
       - name: ProxSpace download
         run: Invoke-WebRequest "https://github.com/Gator96100/ProxSpace/archive/master.zip" -outfile "C:\proxspace.zip" -Passthru
 
