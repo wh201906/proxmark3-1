@@ -50,7 +50,8 @@ jobs:
         run: ./runme64.bat -c "exit"
 
       - uses: actions/checkout@v3
-        path: C:\ProxSpace
+        with:
+          path: C:\ProxSpace
 
       - name: ProxSpace autobuild
         working-directory: C:\ProxSpace
