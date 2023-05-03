@@ -45,19 +45,12 @@ jobs:
           $psversion = (Select-String -Pattern 'PSVERSION=' -SimpleMatch -Path "C:\ProxSpace\setup\09-proxspace_setup.post").Line.Split("""")[1]
           Write-Host "ProxSpace version: $psversion"
 
-      - name: ProxSpace initial startup
+      - name: Checkout Proxmark3
         working-directory: C:\ProxSpace
-        run: ./runme64.bat -c "exit"
-
-      - uses: actions/checkout@v3
-        with:
-          path: C:\ProxSpace
+        run: |
+          mkdir ./pm3
 
       - name: ProxSpace autobuild
         working-directory: C:\ProxSpace
         run: |
           ./autobuild.bat -c "exit"
-
-      - name: Show result
-        working-directory: C:\ProxSpace
-        run: tree /f
