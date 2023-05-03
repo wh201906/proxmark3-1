@@ -53,7 +53,9 @@ jobs:
 
       - name: ProxSpace autobuild
         working-directory: C:\ProxSpace
-        run: ./autobuild.bat -c "exit"
+        run: |
+          mv -r ../proxmark3 ./
+          ./autobuild.bat -c "exit"
 
       - name: Show result
         working-directory: C:\ProxSpace
