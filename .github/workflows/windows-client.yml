@@ -45,14 +45,15 @@ jobs:
           $psversion = (Select-String -Pattern 'PSVERSION=' -SimpleMatch -Path "C:\ProxSpace\setup\09-proxspace_setup.post").Line.Split("""")[1]
           Write-Host "ProxSpace version: $psversion"
 
-      - name: Checkout Proxmark3
-        working-directory: C:\ProxSpace
+      - name: Move to workspace
         run: |
-          mkdir ./pm3
-          cd pm3
-          git clone https://github.com/RfidResearchGroup/proxmark3.git
+          Move-Item -Path "C:\ProxSpace" -Destination "./"
+          mkdir -p ./ProxSpace/pm3
+
+      - uses: actions/checkout@v3
+        with:
 
       - name: ProxSpace autobuild
-        working-directory: C:\ProxSpace
+        working-directory: ./ProxSpace
         run: |
           ./autobuild.bat -c "exit"
