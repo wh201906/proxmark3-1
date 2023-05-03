@@ -58,6 +58,6 @@ jobs:
           git clone https://github.com/RfidResearchGroup/proxmark3.git
 
       - name: ProxSpace autobuild
-        working-directory: ./ProxSpace
+        working-directory: C:/ProxSpace
         run: |
           ./autobuild.bat -c "exit"
