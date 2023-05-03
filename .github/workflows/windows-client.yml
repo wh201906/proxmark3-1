@@ -32,6 +32,7 @@ jobs:
           $Env:PATH = "C:/ProxSpace/msys2/mingw64/bin;C:/ProxSpace/msys2/usr/local/bin;C:/ProxSpace/msys2/usr/bin;C:/ProxSpace/msys2/bin;"+$Env:PATH
           echo $Env:PATH
           echo $Env:PATH >> "$GITHUB_ENV"
+
       - name: ProxSpace download
         run: Invoke-WebRequest "https://github.com/Gator96100/ProxSpace/archive/master.zip" -outfile "C:\proxspace.zip" -Passthru
 
@@ -54,9 +55,12 @@ jobs:
           Move-Item -Path "C:\ProxSpace" -Destination "./"
           mkdir -p ./ProxSpace/pm3
 
-      - uses: actions/checkout@v3
-        with:
-          path: ProxSpace/pm3/proxmark3
+      - name: Checkout Proxmark3
+        working-directory: C:\ProxSpace
+        run: |
+          mkdir ./pm3
+          cd pm3
+          git clone https://github.com/RfidResearchGroup/proxmark3.git
 
       - name: ProxSpace autobuild
         working-directory: ./ProxSpace
