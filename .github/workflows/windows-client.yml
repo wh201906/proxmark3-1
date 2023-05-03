@@ -50,11 +50,6 @@ jobs:
           $psversion = (Select-String -Pattern 'PSVERSION=' -SimpleMatch -Path "C:\ProxSpace\setup\09-proxspace_setup.post").Line.Split("""")[1]
           Write-Host "ProxSpace version: $psversion"
 
-      - name: Move to workspace
-        run: |
-          Move-Item -Path "C:\ProxSpace" -Destination "./"
-          mkdir -p ./ProxSpace/pm3
-
       - name: Checkout Proxmark3
         working-directory: C:\ProxSpace
         run: |
