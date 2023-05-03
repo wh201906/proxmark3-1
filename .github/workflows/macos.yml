@@ -1,12 +1,6 @@
 name: MacOS Build and Test
 
 on:
-  push:
-    paths-ignore:
-      - 'doc/**'
-      - 'docker/**'
-      - 'traces/**'
-      - '.vscode/**'
   pull_request:
     paths-ignore:
       - 'doc/**'
